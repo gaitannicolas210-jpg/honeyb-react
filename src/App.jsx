@@ -1,9 +1,25 @@
 import './App.css'
-import { useState } from 'react'
 import abejaImg from './assets/abejaportadabg.png'
+import { CartProvider, useCart } from './CartContext'
 
-function App() {
-  const [carrito, setCarrito] = useState(0)
+const PRODUCTS = [
+  {
+    id: 1,
+    name: 'Shampoo Sólido Premium',
+    price: 45000,
+    image: 'https://images.unsplash.com/photo-1620916566398-39f1143ab7be?w=1200',
+  },
+  {
+    id: 2,
+    name: 'Shampoo Sólido Natural',
+    price: 35000,
+    image: 'https://images.unsplash.com/photo-1620916566398-39f1143ab7be?w=600',
+  },
+]
+
+function AppInner() {
+  const { cart, addToCart } = useCart()
+  const totalItems = cart.reduce((acc, item) => acc + item.quantity, 0)
 
   return (
     <>
@@ -15,7 +31,7 @@ function App() {
           <li>Proveedores</li>
           <li>Hotelería</li>
         </ul>
-        <div className="cart">🛒 {carrito}</div>
+        <div className="cart">🛒 {totalItems}</div>
       </nav>
 
       <section className="hero">
@@ -24,7 +40,7 @@ function App() {
           <h1>HONEYB</h1>
           <p>Shampoo Sólido Premium</p>
           <span>Desde 2022, cuidando tu cabello y nuestro planeta</span>
-          <button onClick={() => setCarrito(carrito + 1)}>Conócenos</button>
+          <button>Conócenos</button>
         </div>
         <div className="hero-right">
           <div className="floating-bee">
@@ -77,12 +93,12 @@ function App() {
 
           <div className="producto-grande">
             <img
-              src="https://images.unsplash.com/photo-1620916566398-39f1143ab7be?w=1200"
+              src={PRODUCTS[0].image}
               alt="Shampoo Premium"
             />
 
             <div className="producto-info">
-              <h3>Shampoo Sólido Premium</h3>
+              <h3>{PRODUCTS[0].name}</h3>
 
               <p>
                 Formulado con ingredientes naturales.
@@ -93,7 +109,11 @@ function App() {
                 Para toda la familia.
               </p>
 
-              <button onClick={() => setCarrito(carrito + 1)}>
+              <p className="producto-precio">
+                ${PRODUCTS[0].price.toLocaleString('es-CO')} COP
+              </p>
+
+              <button onClick={() => addToCart(PRODUCTS[0])}>
                 Comprar
               </button>
             </div>
@@ -101,16 +121,24 @@ function App() {
 
           <div className="producto-pequeno">
             <img
-              src="https://images.unsplash.com/photo-1620916566398-39f1143ab7be?w=600"
+              src={PRODUCTS[1].image}
               alt="Shampoo Natural"
             />
 
             <div className="producto-info">
-              <h3>Shampoo Sólido Natural</h3>
+              <h3>{PRODUCTS[1].name}</h3>
 
               <p>
                 Cuidado natural para el cabello.
               </p>
+
+              <p className="producto-precio">
+                ${PRODUCTS[1].price.toLocaleString('es-CO')} COP
+              </p>
+
+              <button onClick={() => addToCart(PRODUCTS[1])}>
+                Comprar
+              </button>
             </div>
           </div>
 
@@ -121,6 +149,14 @@ function App() {
         </div>
       </section>
     </>
+  )
+}
+
+function App() {
+  return (
+    <CartProvider>
+      <AppInner />
+    </CartProvider>
   )
 }
 

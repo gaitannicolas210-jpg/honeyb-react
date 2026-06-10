@@ -253,6 +253,13 @@ body {
   cursor: pointer;
 }
 
+.producto-precio {
+  font-size: 20px;
+  font-weight: 700;
+  color: #caa642;
+  margin-top: 10px;
+}
+
 .producto-pequeno {
   width: 360px;
   background: white;
