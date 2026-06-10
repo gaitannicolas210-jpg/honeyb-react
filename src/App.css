@@ -92,3 +92,156 @@ body {
   font-size: 20px;
   cursor: pointer;
 }
+.historia {
+  background: #f5f3ee;
+
+  padding: 100px 120px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 70px;
+}
+
+.historia-img img {
+  width: 500px;
+  height: 560px;
+
+  object-fit: cover;
+}
+
+.historia-texto {
+  max-width: 600px;
+}
+
+.historia-texto h2 {
+  font-size: 48px;
+  margin-bottom: 25px;
+  color: #2e2e2e;
+}
+
+.historia-texto p {
+  font-size: 22px;
+  line-height: 1.8;
+  color: #555;
+  margin-bottom: 25px;
+}
+
+.historia-texto button {
+  background: black;
+  color: white;
+
+  border: none;
+  border-radius: 30px;
+
+  padding: 15px 35px;
+
+  font-size: 18px;
+  cursor: pointer;
+
+  margin-bottom: 25px;
+}
+
+.historia-texto h3 {
+  font-size: 36px;
+  margin-bottom: 20px;
+  color: #2e2e2e;
+}
+/* PRODUCTOS */
+
+.productos {
+  background: #f4f4ef;
+  padding: 100px 10%;
+}
+
+.productos h2 {
+  text-align: center;
+  font-size: 48px;
+  margin-bottom: 60px;
+}
+
+.productos-container {
+  display: flex;
+  justify-content: center;
+  gap: 50px;
+  align-items: flex-start;
+}
+
+.producto-grande {
+  width: 700px;
+  background: white;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.producto-grande img {
+  width: 100%;
+  height: 260px;
+  object-fit: cover;
+}
+
+.producto-info {
+  padding: 25px;
+}
+
+.producto-info h3 {
+  margin-top: 0;
+  font-size: 24px;
+}
+
+.producto-info p {
+  color: #444;
+  line-height: 1.7;
+}
+
+.producto-info button {
+  margin-top: 15px;
+  background: black;
+  color: white;
+  border: none;
+  padding: 12px 25px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.producto-pequeno {
+  width: 360px;
+  background: white;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.producto-pequeno img {
+  width: 100%;
+  height: 230px;
+  object-fit: cover;
+}
+
+.video-btn {
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
+}
+
+.video-btn button {
+  background: black;
+  color: white;
+  border: none;
+  padding: 18px 35px;
+  border-radius: 40px;
+  font-size: 20px;
+  cursor: pointer;
+}
+.producto-grande,
+.producto-pequeno {
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.producto-grande:hover,
+.producto-pequeno:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.18);
+}
