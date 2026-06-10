@@ -1,42 +1,36 @@
 import './App.css'
 import { useState } from 'react'
+import abejaImg from './assets/abejaportadabg.png'
 
 function App() {
   const [carrito, setCarrito] = useState(0)
 
   return (
     <>
-      {/* Navbar */}
       <nav className="navbar">
         <div className="logo">🍯 HoneyB</div>
-
         <ul className="menu">
           <li>Historia</li>
           <li>Productos</li>
           <li>Proveedores</li>
           <li>Hotelería</li>
         </ul>
-
-        <div className="cart">
-          🛒 {carrito}
-        </div>
+        <div className="cart">🛒 {carrito}</div>
       </nav>
 
-      {/* Hero */}
       <section className="hero">
-        <h2>BIENVENIDOS A</h2>
-
-        <h1>HONEYB</h1>
-
-        <p>Shampoo Sólido Premium</p>
-
-        <span>
-          Desde 2022, cuidando tu cabello y nuestro planeta
-        </span>
-
-        <button onClick={() => setCarrito(carrito + 1)}>
-          Conócenos
-        </button>
+        <div className="hero-left">
+          <h2>BIENVENIDOS A</h2>
+          <h1>HONEYB</h1>
+          <p>Shampoo Sólido Premium</p>
+          <span>Desde 2022, cuidando tu cabello y nuestro planeta</span>
+          <button onClick={() => setCarrito(carrito + 1)}>Conócenos</button>
+        </div>
+        <div className="hero-right">
+          <div className="floating-bee">
+            <img src={abejaImg} className="hero-bee-image" alt="Abeja HoneyB" />
+          </div>
+        </div>
       </section>
 
       {/* Historia */}
