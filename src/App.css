@@ -1,15 +1,19 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+html {
+  scroll-behavior: smooth;
 }
 
 .navbar {
-  background: #ffffff;
+  position: sticky;
+  top: 0;
+  z-index: 90;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
   height: 64px;
   display: flex;
   align-items: center;
   padding: 0 60px;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.06);
 }
 
 .logo {
@@ -38,6 +42,35 @@ body {
   color: #caa642;
 }
 
+.menu a {
+  color: inherit;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.menu a:hover {
+  color: #caa642;
+}
+
+.menu a::after {
+  content: '';
+  display: block;
+  width: 0;
+  height: 2px;
+  background: #caa642;
+  transition: width 0.3s ease;
+  margin-top: 2px;
+  border-radius: 2px;
+}
+
+.menu a:hover::after {
+  width: 100%;
+}
+
+[id] {
+  scroll-margin-top: 80px;
+}
+
 .cart {
   margin-left: 40px;
   font-size: 22px;
@@ -48,6 +81,7 @@ body {
 }
 
 .hero {
+  position: relative;
   display: flex;
   align-items: center;
   min-height: calc(100vh - 64px);
@@ -142,72 +176,349 @@ body {
   0%, 100% { transform: translateY(0); }
   50% { transform: translateY(-18px); }
 }
+/* ========== HISTORIA ========== */
+
 .historia {
-  background: #f5f3ee;
-
-  padding: 100px 120px;
-
+  position: relative;
+  width: 100%;
+  min-height: 550px;
+  background: url('https://images.unsplash.com/photo-1620916566398-39f1143ab7be?w=1600') center / cover no-repeat;
   display: flex;
   align-items: center;
-  justify-content: center;
-  gap: 70px;
+  justify-content: flex-end;
+  padding: 80px 80px 60px;
+  margin-bottom: 0;
 }
 
-.historia-img img {
-  width: 500px;
-  height: 560px;
-
-  object-fit: cover;
+.historia::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(8, 20, 50, 0.6);
+  z-index: 1;
 }
 
-.historia-texto {
-  max-width: 600px;
+.historia-content {
+  position: relative;
+  z-index: 2;
+  max-width: 540px;
+  color: #ffffff;
 }
 
-.historia-texto h2 {
+.historia-content h2 {
   font-size: 48px;
-  margin-bottom: 25px;
-  color: #2e2e2e;
+  font-weight: 700;
+  margin-bottom: 24px;
+  color: #ffffff;
 }
 
-.historia-texto p {
-  font-size: 22px;
+.historia-content p {
+  font-size: 17px;
+  line-height: 1.8;
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 20px;
+  font-weight: 400;
+}
+
+.fundador-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 12px;
+  padding: 14px 36px;
+  border: 2px solid rgba(255, 255, 255, 0.7);
+  border-radius: 50px;
+  background: transparent;
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s ease, border-color 0.3s ease, transform 0.2s ease;
+  font-family: inherit;
+}
+
+.fundador-btn:hover {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: #ffffff;
+  transform: translateY(-2px);
+}
+
+/* ========== FUNDADOR ========== */
+
+.fundador-section {
+  display: flex;
+  width: 100%;
+  min-height: 450px;
+  background: #f5f3ee;
+  animation: fundadorReveal 0.5s ease-out forwards;
+  overflow: hidden;
+  padding-top: 60px;
+  margin-top: 0;
+}
+
+@keyframes fundadorReveal {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fundador-texto {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 80px 50px 80px 100px;
+}
+
+.fundador-texto h3 {
+  font-size: 38px;
+  font-weight: 700;
+  color: #2e2e2e;
+  margin-top: 0;
+  margin-bottom: 20px;
+}
+
+.fundador-texto p {
+  font-size: 17px;
   line-height: 1.8;
   color: #555;
-  margin-bottom: 25px;
+  margin-bottom: 16px;
+  max-width: 520px;
 }
 
-.historia-texto button {
-  background: black;
-  color: white;
-
-  border: none;
-  border-radius: 30px;
-
-  padding: 15px 35px;
-
-  font-size: 18px;
-  cursor: pointer;
-
-  margin-bottom: 25px;
+.fundador-imagen {
+  flex: 0 0 45%;
+  overflow: hidden;
 }
 
-.historia-texto h3 {
-  font-size: 36px;
-  margin-bottom: 20px;
+.fundador-imagen img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* ========== PROVEEDORES (CARRUSEL) ========== */
+
+.proveedores {
+  width: 100%;
+  background: #ffffff;
+}
+
+.proveedores-header {
+  text-align: center;
+  padding: 80px 20px 50px;
+}
+
+.proveedores-title {
+  font-size: 48px;
+  font-weight: 700;
   color: #2e2e2e;
+  margin-bottom: 12px;
+}
+
+.proveedores-subtitle {
+  font-size: 17px;
+  color: #999;
+  font-weight: 400;
+}
+
+.proveedores-carousel {
+  position: relative;
+  width: 100%;
+  height: 550px;
+  overflow: hidden;
+}
+
+.proveedores-slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 1s ease, visibility 1s ease;
+  pointer-events: none;
+}
+
+.proveedores-slide.active {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+.proveedores-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.proveedores-caption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 40px 50px 35px;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.55) 0%, transparent 100%);
+  color: #ffffff;
+}
+
+.proveedores-caption h3 {
+  font-size: 26px;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+}
+
+.proveedores-dots {
+  position: absolute;
+  bottom: 100px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 10px;
+  z-index: 5;
+}
+
+.proveedores-dots .dot {
+  width: 40px;
+  height: 4px;
+  border-radius: 2px;
+  border: none;
+  background: rgba(255, 255, 255, 0.35);
+  cursor: pointer;
+  padding: 0;
+  transition: background 0.3s ease, width 0.3s ease;
+}
+
+.proveedores-dots .dot:hover {
+  background: rgba(255, 255, 255, 0.6);
+}
+
+.proveedores-dots .dot.active {
+  background: #ffffff;
+  width: 60px;
+}
+
+/* ========== HOTELERÍA ========== */
+
+.hoteleria {
+  background: #f7f6f2;
+  padding: 100px 10%;
+  text-align: center;
+}
+
+.hoteleria-content {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.hoteleria h2 {
+  font-size: 48px;
+  font-weight: 700;
+  color: #2e2e2e;
+  margin-bottom: 20px;
+}
+
+.hoteleria p {
+  font-size: 18px;
+  color: #888;
+  line-height: 1.6;
 }
 /* PRODUCTOS */
 
 .productos {
+  position: relative;
   background: #f4f4ef;
-  padding: 100px 10%;
+  padding: 100px 10% 120px;
 }
 
 .productos h2 {
   text-align: center;
-  font-size: 48px;
-  margin-bottom: 60px;
+  font-size: 36px;
+  margin-bottom: 20px;
+}
+
+/* ========== PILARES (¿POR QUÉ HONEYB?) ========== */
+
+.pilares {
+  margin-bottom: 80px;
+}
+
+.pilares-title {
+  text-align: center;
+  font-size: 38px;
+  font-weight: 700;
+  color: #2e2e2e;
+  margin-bottom: 50px;
+  letter-spacing: -0.01em;
+}
+
+.pilares-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.pilar-card {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 40px 32px 36px;
+  text-align: center;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+  transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+              box-shadow 0.35s ease;
+  cursor: default;
+}
+
+.pilar-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 36px rgba(202, 166, 66, 0.15);
+}
+
+.pilar-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 72px;
+  height: 72px;
+  margin: 0 auto 20px;
+  border-radius: 50%;
+  background: rgba(202, 166, 66, 0.08);
+}
+
+.pilar-icon svg {
+  width: 40px;
+  height: 40px;
+}
+
+.pilar-name {
+  font-size: 20px;
+  font-weight: 700;
+  color: #2e2e2e;
+  margin-bottom: 12px;
+}
+
+.pilar-sub {
+  font-weight: 500;
+  font-size: 16px;
+  color: #888;
+}
+
+.pilar-desc {
+  font-size: 15px;
+  line-height: 1.7;
+  color: #666;
+  max-width: 300px;
+  margin: 0 auto;
 }
 
 /* ========== FLIP CARDS ========== */
@@ -787,11 +1098,13 @@ body {
   20%, 40%, 60%, 80% { transform: rotate(8deg); }
 }
 
-/* ========== VIDEO SECTION ========== */
+/* ========== VIDEO ========== */
 
 .video-section {
-  background: #f4f4ef;
-  padding: 80px 10% 120px;
+  margin-top: 80px;
+  background: #ffffff;
+  padding: 80px 10% 100px;
+  border-radius: 20px;
   text-align: center;
 }
 
@@ -889,6 +1202,15 @@ body {
 /* ========== RESPONSIVE ========== */
 
 @media (max-width: 768px) {
+  .navbar {
+    padding: 0 20px;
+  }
+
+  .menu {
+    gap: 16px;
+    font-size: 13px;
+  }
+
   .flip-card {
     width: 90vw;
     height: 400px;
@@ -903,16 +1225,130 @@ body {
     padding: 24px 20px;
   }
 
-  .video-section {
+  .productos {
     padding: 60px 5% 80px;
   }
 
+  .productos h2 {
+    font-size: 28px;
+  }
+
+  .pilares {
+    margin-bottom: 50px;
+  }
+
+  .pilares-title {
+    font-size: 26px;
+    margin-bottom: 30px;
+  }
+
+  .pilares-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .pilar-card {
+    padding: 30px 24px 28px;
+  }
+
+  .productos {
+    padding-bottom: 60px;
+  }
+
+  .video-section {
+    padding: 40px 5% 60px;
+    margin-top: 50px;
+  }
+
   .video-section h2 {
-    font-size: 32px;
+    font-size: 28px;
   }
 
   .video-container {
     width: 100%;
     max-width: 100%;
+  }
+
+  .historia {
+    padding: 60px 30px;
+    justify-content: center;
+  }
+
+  .historia-content {
+    max-width: 100%;
+    text-align: center;
+  }
+
+  .historia-content h2 {
+    font-size: 32px;
+  }
+
+  .historia-content p {
+    font-size: 15px;
+  }
+
+  .fundador-section {
+    flex-direction: column-reverse;
+    min-height: auto;
+  }
+
+  .fundador-texto {
+    padding: 40px 30px;
+  }
+
+  .fundador-texto h3 {
+    font-size: 28px;
+  }
+
+  .fundador-imagen {
+    flex: none;
+    width: 100%;
+    height: 300px;
+  }
+
+  .proveedores-header {
+    padding: 50px 20px 30px;
+  }
+
+  .proveedores-title {
+    font-size: 32px;
+  }
+
+  .proveedores-subtitle {
+    font-size: 15px;
+  }
+
+  .proveedores-carousel {
+    height: 350px;
+  }
+
+  .proveedores-caption {
+    padding: 24px 20px;
+  }
+
+  .proveedores-caption h3 {
+    font-size: 20px;
+  }
+
+  .proveedores-dots {
+    bottom: 70px;
+    gap: 8px;
+  }
+
+  .proveedores-dots .dot {
+    width: 28px;
+    height: 3px;
+  }
+
+  .proveedores-dots .dot.active {
+    width: 44px;
+  }
+
+  .hoteleria {
+    padding: 60px 5%;
+  }
+
+  .hoteleria h2 {
+    font-size: 32px;
   }
 }
