@@ -4,40 +4,50 @@ import abejaImg from './assets/abejaportadabg.png'
 import { CartProvider, useCart } from './CartContext'
 import CartSidebar from './CartSidebar'
 import CheckoutModal from './CheckoutModal'
-
+import productoNatura from './assets/natural.png'
+import productoNatural from './assets/naturaleza.jpeg'
+import videoTutorial from './assets/Cómo se usa.mp4'
+import proveedorImg from './assets/provedor.jpeg'
+import laboratorioImg from './assets/Laboratorio.jpeg'
+import introduccionImg from './assets/introduccion.jpg'
+import fundadorImg from './assets/fundador.jpeg'
+import ingredientesImg from './assets/Ingredientes.png'
+import envaseImg from './assets/Embase.jpeg'
+import logoHoneyB from "./assets/Honey Original.png";
+import hoteleriaImg from './assets/KitHotelero.png'
 const PRODUCTS = [
   {
     id: 1,
     name: 'Shampoo Sólido Premium',
     price: 45000,
     description: 'Formulado con ingredientes naturales. 70g = 35-58 lavadas. Para toda la familia.',
-    image: 'https://images.unsplash.com/photo-1620916566398-39f1143ab7be?w=1200',
+    image: productoNatura,
   },
   {
     id: 2,
     name: 'Shampoo Sólido Natural',
     price: 35000,
     description: 'Cuidado natural para el cabello. Ingredientes orgánicos y biodegradables.',
-    image: 'https://images.unsplash.com/photo-1620916566398-39f1143ab7be?w=600',
+    image: productoNatural,
   },
 ]
 
 const SUPPLIERS = [
   {
     name: 'Apicultores Locales',
-    image: 'https://images.unsplash.com/photo-1587049352846-4a222e784d38?w=1200',
+    image: proveedorImg
   },
   {
     name: 'Laboratorio Natural',
-    image: 'https://images.unsplash.com/photo-1608571423902-eed4a5ad8108?w=1200',
+    image: laboratorioImg
   },
   {
     name: 'Ingredientes Orgánicos',
-    image: 'https://images.unsplash.com/photo-1598392482227-5bed91183f47?w=1200',
+    image: ingredientesImg
   },
   {
     name: 'Envasado Sustentable',
-    image: 'https://images.unsplash.com/photo-1542600998-6f719b3e5b20?w=1200',
+    image: envaseImg
   },
 ]
 
@@ -120,7 +130,13 @@ function AppInner() {
       )}
 
       <nav className="navbar">
-        <div className="logo">🍯 HoneyB</div>
+        <div className="logo">
+          <img
+            src={logoHoneyB}
+            alt="HoneyB"
+            className="logo-header"
+          />
+        </div>
         <ul className="menu">
           <li><a href="#historia">Historia</a></li>
           <li><a href="#productos">Productos</a></li>
@@ -145,7 +161,11 @@ function AppInner() {
         </div>
       </section>
 
-      <section className="historia" id="historia">
+      <section
+        className="historia"
+        id="historia"
+        style={{ backgroundImage: `url(${introduccionImg})` }}
+      >
         <div className="historia-content">
           <h2>Nuestra Historia</h2>
           <p>
@@ -181,7 +201,7 @@ function AppInner() {
           </div>
           <div className="fundador-imagen">
             <img
-              src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800"
+              src={fundadorImg}
               alt="Santiago Cavanzo"
             />
           </div>
@@ -195,9 +215,9 @@ function AppInner() {
             <div className="pilar-card">
               <div className="pilar-icon">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" fill="none">
-                  <path d="M24 4C24 4 12 12 12 24C24 32 32 38 36 24C36 12 24 4 24 4Z" fill="#caa642" opacity="0.15"/>
-                  <path d="M24 8C22 12 18 18 18 24C18 30 20 34 24 38C28 34 30 30 30 24C30 18 26 12 24 8Z" fill="#caa642"/>
-                  <path d="M24 18L26 22L30 22.5L27 25.5L28 30L24 27.5L20 30L21 25.5L18 22.5L22 22L24 18Z" fill="#ffffff" opacity="0.6"/>
+                  <path d="M24 4C24 4 12 12 12 24C24 32 32 38 36 24C36 12 24 4 24 4Z" fill="#caa642" opacity="0.15" />
+                  <path d="M24 8C22 12 18 18 18 24C18 30 20 34 24 38C28 34 30 30 30 24C30 18 26 12 24 8Z" fill="#caa642" />
+                  <path d="M24 18L26 22L30 22.5L27 25.5L28 30L24 27.5L20 30L21 25.5L18 22.5L22 22L24 18Z" fill="#ffffff" opacity="0.6" />
                 </svg>
               </div>
               <h4 className="pilar-name">Puro &amp; Orgánico</h4>
@@ -210,9 +230,9 @@ function AppInner() {
             <div className="pilar-card">
               <div className="pilar-icon">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" fill="none">
-                  <circle cx="24" cy="24" r="18" fill="#caa642" opacity="0.15"/>
-                  <path d="M24 10L26 18H34L28 23L30 32L24 27L18 32L20 23L14 18H22L24 10Z" fill="#caa642"/>
-                  <circle cx="24" cy="24" r="4" fill="#ffffff" opacity="0.5"/>
+                  <circle cx="24" cy="24" r="18" fill="#caa642" opacity="0.15" />
+                  <path d="M24 10L26 18H34L28 23L30 32L24 27L18 32L20 23L14 18H22L24 10Z" fill="#caa642" />
+                  <circle cx="24" cy="24" r="4" fill="#ffffff" opacity="0.5" />
                 </svg>
               </div>
               <h4 className="pilar-name">Sostenible <span className="pilar-sub">(Zero Waste)</span></h4>
@@ -225,9 +245,9 @@ function AppInner() {
             <div className="pilar-card">
               <div className="pilar-icon">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" fill="none">
-                  <path d="M24 6L26.5 15.5H36L28.5 21L31 30.5L24 25.5L17 30.5L19.5 21L12 15.5H21.5L24 6Z" fill="#caa642"/>
-                  <circle cx="24" cy="24" r="16" fill="#caa642" opacity="0.08"/>
-                  <path d="M24 12L25.5 18H32L27 22L28.5 28L24 24.5L19.5 28L21 22L16 18H22.5L24 12Z" fill="#ffffff" opacity="0.7"/>
+                  <path d="M24 6L26.5 15.5H36L28.5 21L31 30.5L24 25.5L17 30.5L19.5 21L12 15.5H21.5L24 6Z" fill="#caa642" />
+                  <circle cx="24" cy="24" r="16" fill="#caa642" opacity="0.08" />
+                  <path d="M24 12L25.5 18H32L27 22L28.5 28L24 24.5L19.5 28L21 22L16 18H22.5L24 12Z" fill="#ffffff" opacity="0.7" />
                 </svg>
               </div>
               <h4 className="pilar-name">Resultados Reales</h4>
@@ -273,13 +293,12 @@ function AppInner() {
         <div className="video-section">
           <h2>¿Cómo se usa?</h2>
           <div className="video-container">
-            <iframe
-              src="https://www.youtube.com/embed/REPLACE_ME"
-              title="Cómo usar HoneyB"
-              frameBorder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowFullScreen
-            />
+            <video
+              src={videoTutorial}
+              controls
+              width="800"
+            >
+            </video>
           </div>
         </div>
       </section>
@@ -314,9 +333,23 @@ function AppInner() {
       </section>
 
       <section className="hoteleria" id="hoteleria">
-        <div className="hoteleria-content">
-          <h2>Hotelería</h2>
-          <p>Próximamente — una experiencia exclusiva para hoteles y resorts.</p>
+        <h2>Línea Hotelera</h2>
+
+        <p className="hoteleria-subtitle">
+          Ofrecemos soluciones premium para hoteles, spas y alojamientos que desean
+          brindar una experiencia natural, elegante y sostenible a sus huéspedes.
+        </p>
+
+        <div className="hoteleria-card">
+          <img
+            src={hoteleriaImg}
+            alt="Kit Hotelero HoneyB"
+          />
+          <h3>Kit Hotelero</h3>
+          <p>
+            Presentación exclusiva para hoteles, spas y alojamientos que buscan
+            ofrecer una experiencia premium y sostenible a sus huéspedes.
+          </p>
         </div>
       </section>
 

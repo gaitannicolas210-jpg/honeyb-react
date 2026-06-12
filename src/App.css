@@ -22,6 +22,12 @@ html {
   color: #caa642;
 }
 
+.logo-header {
+  height: 65px;
+  width: auto;
+  object-fit: contain;
+}
+
 .menu {
   display: flex;
   gap: 36px;
@@ -1351,4 +1357,46 @@ html {
   .hoteleria h2 {
     font-size: 32px;
   }
+}
+.hoteleria {
+  padding: 80px 20px;
+  text-align: center;
+  background: #f5f7f1;
+}
+
+.hoteleria h2 {
+  font-size: 3rem;
+  margin-bottom: 20px;
+}
+
+.hoteleria-subtitle {
+  max-width: 900px;
+  margin: 0 auto 50px;
+  font-size: 1.2rem;
+  color: #555;
+}
+
+.hoteleria-card {
+  max-width: 700px;
+  margin: auto;
+  background: white;
+  border-radius: 20px;
+  padding: 25px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+}
+
+.hoteleria-card img {
+  width: 100%;
+  border-radius: 15px;
+}
+
+.hoteleria-card h3 {
+  margin-top: 20px;
+  font-size: 2rem;
+}
+
+.hoteleria-card p {
+  margin-top: 15px;
+  color: #666;
+  line-height: 1.6;
 }
